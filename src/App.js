@@ -4,18 +4,13 @@ import Header from "./components/shared/header";
 import Hero from "./components/hero";
 import Section from "./layout/section";
 import Wrapper from "./layout/wrapper";
-import LaunchCard from "./components/lauch-card";
 import { useLaunches } from "./hooks/useLaunches";
+import { CardGrid } from "./layout/CardGrid";
 
 const MainWrapper = styled.main`
   display: block;
   position: relative;
   width: 100%;
-
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-  }
 `;
 
 const ContentSelector = styled.div`
@@ -52,16 +47,7 @@ function App() {
 
         {!loading && (
           <Wrapper>
-            <div className="grid">
-              {launches.map((item, index) => (
-                <LaunchCard
-                  key={index.toString()}
-                  image={item.links.patch.small}
-                  title={item.name}
-                  description={item.details}
-                />
-              ))}
-            </div>
+            <CardGrid launches={launches} />
           </Wrapper>
         )}
       </Section>
