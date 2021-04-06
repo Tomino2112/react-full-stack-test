@@ -1,12 +1,11 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import styled from "styled-components";
 import Header from "./components/shared/header";
 import Hero from "./components/hero";
 import Section from "./layout/section";
 import Wrapper from "./layout/wrapper";
 import LaunchCard from "./components/lauch-card";
+import { useLaunches } from "./hooks/useLaunches";
 
 const MainWrapper = styled.main`
   display: block;
@@ -34,22 +33,7 @@ const ContentSelector = styled.div`
 `;
 
 function App() {
-  const [data, setData] = useState({ launches: [] });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        "https://api.spacexdata.com/v4/launches/past?limit=10"
-      );
-
-      console.log(result.data);
-
-      setData({ launches: result.data });
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  const { loading, launches } = useLaunches();
 
   return (
     <MainWrapper>
@@ -69,7 +53,7 @@ function App() {
         {!loading && (
           <Wrapper>
             <div className="grid">
-              {data.launches.map((item, index) => (
+              {launches.map((item, index) => (
                 <LaunchCard
                   key={index.toString()}
                   image={item.links.patch.small}
