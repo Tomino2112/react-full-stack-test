@@ -6,12 +6,20 @@ import Lockup from "../lockup";
 
 const LaunchCardWrapper = styled.div`
   display: block;
+  align-self: stretch;
   margin-bottom: 30px;
-  margin-left: 20px;
   width: 100%;
+
+  @media ${device.laptop} {
+    width: 32%;
+  }  
 `;
 
-const LaunchCardContainer = styled.div``;
+const LaunchCardContainer = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column-reverse;  
+`;
 
 const ImagContainer = styled.div`
   padding: 40px 20px;
