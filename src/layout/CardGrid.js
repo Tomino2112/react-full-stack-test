@@ -10,9 +10,9 @@ const CardGridWrapper = styled.div`
 export const CardGrid = ({ launches }) => {
     return (
         <CardGridWrapper>
-            {launches.map((item, index) => (
+            {launches.map(item => (
                 <LaunchCard
-                    key={index.toString()}
+                    key={`launch-${item.id}`}
                     image={item.links.patch.small}
                     title={item.name}
                     description={item.details}

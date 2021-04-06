@@ -8,7 +8,7 @@ export const useLaunches = () => {
     useEffect(() => {
         const fetchData = async () => {
           const result = await axios(
-            "https://api.spacexdata.com/v4/launches/past?limit=10"
+            "http://localhost:4000/launches"
           );
     
           setLaunches(result.data);
