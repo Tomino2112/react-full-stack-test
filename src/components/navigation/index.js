@@ -8,9 +8,9 @@ import Burger, { BurgerMenu } from "./burger";
 import { device } from "../../helpers";
 
 const navData = [
-  { home: "rockets" },
-  { launches: "launches" },
-  { rockets: "launches" },
+  { home: "/" },
+  { launches: "/launches" },
+  { rockets: "/rockets" },
 ];
 
 const NavList = styled.ul`
