@@ -4,7 +4,7 @@ import { device } from "../../helpers";
 import Image from "../image";
 import Lockup from "../lockup";
 
-const LaunchCardWrapper = styled.div`
+const RocketCardWrapper = styled.div`
   display: block;
   align-self: stretch;
   margin-bottom: 30px;
@@ -15,7 +15,7 @@ const LaunchCardWrapper = styled.div`
   }  
 `;
 
-const LaunchCardContainer = styled.div`
+const RocketCardContainer = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column-reverse;  
@@ -41,21 +41,21 @@ const Content = styled.div`
   flex: 1;
 `;
 
-function LaunchCard(props) {
+function RocketCard(props) {
   return (
-    <LaunchCardWrapper>
-      <LaunchCardContainer>
+    <RocketCardWrapper>
+      <RocketCardContainer>
         <ImagContainer>
           <Image url={props.image} />
         </ImagContainer>
 
         <Content>
           <Lockup text={props.description} tag="h3" title={props.title} />
+          <Lockup text={`Cost per launch: ${props.cost}`} tag="h3" />
         </Content>
-        {/* Youtube Link ? */}
-      </LaunchCardContainer>
-    </LaunchCardWrapper>
+      </RocketCardContainer>
+    </RocketCardWrapper>
   );
 }
 
-export default LaunchCard;
+export default RocketCard;
